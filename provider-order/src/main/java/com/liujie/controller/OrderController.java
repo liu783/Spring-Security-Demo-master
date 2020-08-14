@@ -16,6 +16,11 @@ public class OrderController {
 		return "orderList";
 	}
 
+	@RequestMapping( value = "/test01")
+	public String test01(){
+		return "provider-order test01";
+	}
+
 
 
 }
