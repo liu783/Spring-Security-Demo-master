@@ -1,0 +1,41 @@
+server:
+  port: 8088
+
+
+spring:
+  application:
+    name: zuul-server
+  datasource:
+    username: root
+    password: 123@qwe
+    url: jdbc:mysql://localhost:3306/test_springboot?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://eureka1:8001/eureka,http://eureka2:8002/eureka
+
+
+# 配置服务网关服务组
+zuul:
+  routes:
+    # 一组路由，自己定义名字
+    provider-student:
+      strip-prefix: false
+      # 路由请求路径，当请求符合path匹配时，处理对应服务请求
+      path: /pstu/**
+      # 路由对应的服务名
+      service-id: provider-student
+    provider-student2:
+      strip-prefix: false
+      path: /pstu/**
+      service-id: provider-student2
+    provider-order:
+      strip-prefix: false
+      path: /porder/**
+      service-id: provider-order
+

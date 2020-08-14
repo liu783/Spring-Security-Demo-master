@@ -1,0 +1,21 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: eureka-server
+  datasource:
+    username: root
+    password: 123@qwe
+    url: jdbc:mysql://localhost:3306/test_springboot?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+eureka:
+  instance:
+    hostname: eureka2
+    prefer-ip-address: false
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka1:8001/eureka

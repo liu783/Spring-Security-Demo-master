@@ -1,0 +1,30 @@
+server:
+  port: 8085
+
+
+spring:
+  application:
+    name: provider-order
+  datasource:
+    username: root
+    password: 123@qwe
+    url: jdbc:mysql://localhost:3306/test_springboot?useSSL=false&serverTimezone=Hongkong&characterEncoding=utf-8&autoReconnect=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+
+  client:
+    service-url:
+      defaultZone: http://eureka1:8001/eureka,http://eureka2:8002/eureka
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.liujie.entity
+  configuration:
+    jdbc-type-for-null: NULL
+    cache-enabled: false
